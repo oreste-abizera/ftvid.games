@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { loadSearchedVideos, loadVideos } from '../functions';
 import { Match, PageStatus } from '../utils/types';
@@ -100,6 +100,10 @@ export function ContextProvider({ children }: Props): ReactElement {
       {children}
     </Context.Provider>
   );
+}
+
+export function useContextData() {
+  return useContext(Context);
 }
 
 export default Context;

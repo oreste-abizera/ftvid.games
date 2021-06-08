@@ -1,16 +1,15 @@
-import React, { ReactElement, useContext, useState } from "react";
-import styled from "styled-components";
-import Tilt from "react-tilt";
-import { useHistory } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-import logo from "../assets/logo.png";
-import Context from "../context/ContextProvider";
+import React, { ReactElement, useContext, useState } from 'react';
+import styled from 'styled-components';
+import Tilt from 'react-tilt';
+import { useRouter } from 'next/router';
+import { FaSearch } from 'react-icons/fa';
+import logo from '../assets/logo.png';
+import Context from '../context/ContextProvider';
 
 export default function Navbar(): ReactElement {
-  const { searchKey, handleSearchKey, search, searchRecent }: any = useContext(
-    Context
-  );
-  const history = useHistory();
+  const { searchKey, handleSearchKey, search, searchRecent }: any =
+    useContext(Context);
+  const router = useRouter();
   const [suggestionsShown, setSuggestionsShown] = useState(false);
   const [suggestions, setsuggestions] = useState([]);
 
@@ -20,14 +19,14 @@ export default function Navbar(): ReactElement {
   };
 
   const loadSuggestions = () => {
-    const tempSuggestions = localStorage.getItem("suggestions");
+    const tempSuggestions = localStorage.getItem('suggestions');
     let finalSuggestions = tempSuggestions ? JSON.parse(tempSuggestions) : [];
     setsuggestions(finalSuggestions.reverse().slice(0, 5));
   };
   return (
     <NavbarWrapper>
       <Tilt className="tilt">
-        <img onClick={() => history.push("/")} src={logo} alt="Logo"></img>
+        <img onClick={() => router.push('/')} src={logo} alt="Logo"></img>
       </Tilt>
       <form className="searchBox" onSubmit={search}>
         <input
@@ -45,7 +44,7 @@ export default function Navbar(): ReactElement {
               <div
                 key={index}
                 onClick={() => {
-                  alert("suggestion clicked..");
+                  alert('suggestion clicked..');
                   searchRecent(suggestion);
                 }}
               >
@@ -125,7 +124,7 @@ const NavbarWrapper = styled.div`
   }
 
   .suggestions > div:hover {
-    background-color: #e5e5e5;
+    background-color: rgb(229, 229, 229);
   }
 
   @media screen and (max-width: 768px) {
