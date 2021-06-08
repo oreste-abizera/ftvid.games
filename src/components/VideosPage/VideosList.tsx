@@ -1,11 +1,11 @@
-import React, { ReactElement } from "react";
-import styled from "styled-components";
-import Context from "../../context/ContextProvider";
-import { timeAgo } from "../../utils/helperFunctions";
-import { Match } from "../../utils/types";
-import { Link } from "react-router-dom";
-import Loader from "../Loader";
-import NotFoundComponent from "../NotFoundComponent";
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
+import Context from '../../context/ContextProvider';
+import { timeAgo } from '../../utils/helperFunctions';
+import { Match } from '../../utils/types';
+import Link from 'next/link';
+import Loader from '../Loader';
+import NotFoundComponent from '../NotFoundComponent';
 
 interface Props {
   results?: Array<Match>;
@@ -18,10 +18,12 @@ export default function VideosList({ results }: Props): ReactElement {
   return (
     <VideosListWrapper>
       {matches.map((match) => (
-        <Link to={`/videos/${match._id}`} className="match" key={match._id}>
-          <img src={match.thumbnail} alt={match.title}></img>
-          <p className="title">{match.title}</p>
-          <p>{timeAgo(match.date)}</p>
+        <Link href={`/videos/${match._id}`} key={match._id}>
+          <a className="match" href={`/videos/${match._id}`}>
+            <img src={match.thumbnail} alt={match.title}></img>
+            <p className="title">{match.title}</p>
+            <p>{timeAgo(match.date)}</p>
+          </a>
         </Link>
       ))}
       {matches.length === 0 && !loading && (
