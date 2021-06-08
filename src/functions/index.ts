@@ -1,5 +1,5 @@
-import axios from "axios";
-import url from "../utils/url";
+import axios from 'axios';
+import url from '../utils/url';
 
 export async function loadVideos(page: Number) {
   let response = await axios
@@ -19,7 +19,7 @@ export async function loadSearchedVideos(searchKey: string) {
     .catch((err) => console.log(err));
   if (response) {
     if (response.data) {
-      console.log("response.data");
+      console.log('response.data');
       return response.data.matches;
     }
   }

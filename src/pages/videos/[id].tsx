@@ -33,7 +33,7 @@ export default function SingleVideoPage(props: any): ReactElement {
         setcurrentMatch(tempCurrentMatch);
       } else {
         //load match details from backend
-        setcurrentMatch(await loadVideo(id));
+        setcurrentMatch(await loadVideo(id ? id.toString() : ''));
       }
       setisloading(false);
     }
