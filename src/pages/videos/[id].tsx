@@ -10,10 +10,10 @@ import Context from '../../context/ContextProvider';
 import { loadVideo } from '../../functions';
 import { Match } from '../../utils/types';
 
-export default function SingleVideoPage(props: any): ReactElement {
+export default function SingleVideoPage(props: { data: any }): ReactElement {
   const contextData: any = useContext(Context);
   const matches: Array<Match> = contextData.matches;
-  const [currentMatch, setcurrentMatch] = useState<Match>();
+  const [currentMatch, setcurrentMatch] = useState<Match>(props.data);
   const [isloading, setisloading] = useState(false);
   const { clearSearch } = contextData;
   const router = useRouter();
@@ -21,24 +21,25 @@ export default function SingleVideoPage(props: any): ReactElement {
   useEffect(() => {
     clearSearch();
     // eslint-disable-next-line
+    // setcurrentMatch(props.data);
   }, []);
 
-  useEffect(() => {
-    async function init() {
-      setisloading(true);
-      const { id } = router.query;
-      let tempMatches = matches || [];
-      let tempCurrentMatch = tempMatches.find((match) => match._id === id);
-      if (tempCurrentMatch) {
-        setcurrentMatch(tempCurrentMatch);
-      } else {
-        //load match details from backend
-        setcurrentMatch(await loadVideo(id ? id.toString() : ''));
-      }
-      setisloading(false);
-    }
-    init();
-  }, [matches, router.query]);
+  // useEffect(() => {
+  //   async function init() {
+  //     setisloading(true);
+  //     const { id } = router.query;
+  //     let tempMatches = matches || [];
+  //     let tempCurrentMatch = tempMatches.find((match) => match._id === id);
+  //     if (tempCurrentMatch) {
+  //       setcurrentMatch(tempCurrentMatch);
+  //     } else {
+  //       //load match details from backend
+  //       setcurrentMatch(await loadVideo(id ? id.toString() : ''));
+  //     }
+  //     setisloading(false);
+  //   }
+  //   init();
+  // }, [matches, router.query]);
 
   return (
     <SingleVideoPageWrapper>
@@ -81,3 +82,8 @@ const SingleVideoPageWrapper = styled.div`
   height: 100vh;
   overflow-y: auto;
 `;
+
+SingleVideoPage.getInitialProps = async ({ query: { id } }: any) => {
+  let video = await loadVideo(id);
+  return { data: video };
+};
