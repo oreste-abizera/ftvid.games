@@ -28,7 +28,6 @@
     ]
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "3.4.2",
     "@types/react-icons": "3.0.0",
     "@types/styled-components": "5.1.9",
     "axios": "0.21.1",
