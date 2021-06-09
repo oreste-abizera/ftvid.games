@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import defaultImage from '../assets/screenshot.png';
 import { SEOProps } from '../utils/types';
+import favicon from '../assets/favicon.png';
 
 // const defaultImage = require('../assets/screenshot.png');
 
@@ -20,7 +21,7 @@ export const SEO = ({
     <Head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="shortcut icon" href="/static/images/favicon.png" />
+      <link rel="shortcut icon" href={favicon} />
       <meta
         name="keywords"
         content="HTML, CSS, JavaScript, FOOTBALL, VIDEOS, HIGHLIGHTS"
