@@ -42,7 +42,7 @@ const VideosListWrapper = styled.div`
 
   .match {
     width: 30%;
-    margin: 1rem 1.5% 2rem 1.5%;
+    margin: 1rem 1.5% 1rem 1.5%;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -58,6 +58,11 @@ const VideosListWrapper = styled.div`
   .match > .title {
     margin-top: 0.4rem;
     font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  .match > p:last-child {
+    margin-top: 0.5rem;
   }
 
   @media screen and (max-width: 692px) {
