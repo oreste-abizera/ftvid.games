@@ -45,10 +45,10 @@ export default function SingleVideoPage(props: any): ReactElement {
       <Navbar></Navbar>
       {isloading ? (
         <>
-          <SEO
+          {/* <SEO
             title="FtVid | Loading: loading match videos."
             description="Loading: loading match videos."
-          ></SEO>
+          ></SEO> */}
           <Loader></Loader>
         </>
       ) : (
@@ -64,10 +64,10 @@ export default function SingleVideoPage(props: any): ReactElement {
             </>
           ) : (
             <>
-              <SEO
+              {/* <SEO
                 title="FtVid | Error: Match not found."
                 description="Error | Match not found."
-              ></SEO>
+              ></SEO> */}
               <NotFoundComponent text="Match not found"></NotFoundComponent>
             </>
           )}

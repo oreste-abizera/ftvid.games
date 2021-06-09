@@ -18,6 +18,18 @@ export const SEO = ({
 }: SEOProps) => {
   return (
     <Head>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="shortcut icon" href="/static/images/favicon.png" />
+      <meta
+        name="keywords"
+        content="HTML, CSS, JavaScript, FOOTBALL, VIDEOS, HIGHLIGHTS"
+      />
+      <meta name="author" content="Oreste Abizera" />
+      <meta
+        name="google-site-verification"
+        content="xzs6YHW_CObmzfomBpQCaAAT298lbfSuoaFqql2_aPY"
+      />
       <title>{title}</title>
       <meta
         name="description"
