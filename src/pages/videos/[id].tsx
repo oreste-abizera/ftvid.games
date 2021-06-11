@@ -65,10 +65,10 @@ export default function SingleVideoPage(props: { data: any }): ReactElement {
             </>
           ) : (
             <>
-              {/* <SEO
+              <SEO
                 title="FtVid | Error: Match not found."
                 description="Error | Match not found."
-              ></SEO> */}
+              ></SEO>
               <NotFoundComponent text="Match not found"></NotFoundComponent>
             </>
           )}

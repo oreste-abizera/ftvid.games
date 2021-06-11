@@ -19,11 +19,11 @@ export default function VideosList({ results }: Props): ReactElement {
     <VideosListWrapper>
       {matches.map((match) => (
         <Link href={`/videos/${match._id}`} key={match._id}>
-          <a className="match" href={`/videos/${match._id}`}>
+          <div className="match">
             <img src={match.thumbnail} alt={match.title}></img>
             <p className="title">{match.title}</p>
             <p>{timeAgo(match.date)}</p>
-          </a>
+          </div>
         </Link>
       ))}
       {matches.length === 0 && !loading && (
@@ -62,7 +62,7 @@ const VideosListWrapper = styled.div`
   }
 
   .match > p:last-child {
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 
   @media screen and (max-width: 692px) {

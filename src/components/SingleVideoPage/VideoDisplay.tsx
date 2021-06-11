@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { timeAgo } from "../../utils/helperFunctions";
-import { Match } from "../../utils/types";
-import NotFoundComponent from "../NotFoundComponent";
+import React from 'react';
+import styled from 'styled-components';
+import { timeAgo } from '../../utils/helperFunctions';
+import { Match } from '../../utils/types';
+import NotFoundComponent from '../NotFoundComponent';
 
 interface Props {
   match: Match;
@@ -34,11 +34,15 @@ const VideoDisplayWrapper = styled.div`
   margin: 1rem auto;
 
   > div > h4 {
-    margin: 0.4rem 0;
+    margin: 0;
   }
 
   .video:not(:first-child) {
     margin-top: 2rem;
+  }
+
+  .video > p {
+    margin-top: 0;
   }
 
   @media screen and (max-width: 768px) {
