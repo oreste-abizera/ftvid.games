@@ -20,9 +20,15 @@ export default function VideosList({ results }: Props): ReactElement {
       {matches.map((match) => (
         <Link href={`/videos/${match._id}`} key={match._id}>
           <div className="match">
-            <img src={match.thumbnail} alt={match.title}></img>
-            <p className="title">{match.title}</p>
-            <p>{timeAgo(match.date)}</p>
+            <img
+              src={match.thumbnail}
+              alt={match.title.split('-').join('vs')}
+            ></img>
+            <p className="title">{match.title.split('-').join('vs')}</p>
+            <p className="time">
+              <span>{timeAgo(match.date)}</span>
+              <p className="competition">{match.competition.name}</p>
+            </p>
           </div>
         </Link>
       ))}
@@ -61,10 +67,27 @@ const VideosListWrapper = styled.div`
     margin-bottom: 0;
   }
 
-  .match > p:last-child {
-    margin-top: 0;
+  .match > p.time {
+    margin: 0;
+    margin-top: 0.2rem;
+    display: flex;
+    justify-content: space-between;
   }
 
+  .match p.competition {
+    margin: 0;
+    font-size: 15px;
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.7em;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    background-color: rebeccapurple;
+  }
   @media screen and (max-width: 692px) {
     justify-content: center;
     .match {

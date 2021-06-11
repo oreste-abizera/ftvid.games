@@ -19,7 +19,6 @@ export async function loadSearchedVideos(searchKey: string) {
     .catch((err) => console.log(err));
   if (response) {
     if (response.data) {
-      console.log('response.data');
       return response.data.matches;
     }
   }

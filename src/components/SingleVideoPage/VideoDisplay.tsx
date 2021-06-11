@@ -22,7 +22,10 @@ export const VideoDisplay = ({ match }: Props) => {
             className="video__container"
           ></div>
           <h4>{`${match.title} (${video.title})`}</h4>
-          <p>{timeAgo(match.date)}</p>
+          <p className="time">
+            <span>{timeAgo(match.date)}</span>
+            <p className="competition">{match.competition.name}</p>
+          </p>
         </div>
       ))}
     </VideoDisplayWrapper>
@@ -41,8 +44,25 @@ const VideoDisplayWrapper = styled.div`
     margin-top: 2rem;
   }
 
-  .video > p {
+  .video > p.time {
     margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .video p.competition {
+    margin: 0;
+    font-size: 15px;
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.7em;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    background-color: rebeccapurple;
   }
 
   @media screen and (max-width: 768px) {
