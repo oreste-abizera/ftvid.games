@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const VideoDisplay = ({ match }: Props) => {
-  const { videos } = match;
+  const { videos, manual } = match;
   if (videos.length === 0) {
     return <NotFoundComponent text="no video found"></NotFoundComponent>;
   }

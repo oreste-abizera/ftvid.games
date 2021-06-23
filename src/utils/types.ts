@@ -1,4 +1,5 @@
 export interface Match {
+  manual: boolean;
   _id: string;
   url: string;
   title: string;
